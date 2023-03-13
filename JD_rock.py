@@ -7,7 +7,7 @@ import time
 host = "192.168.1.1"
 port = 23
 
-class JD_Robot:
+class Humanoid:
     def __init__(self):
         self.connect_telnet()
         self.music_track = 0
@@ -17,27 +17,27 @@ class JD_Robot:
 
     def play_music(self):
         self.tn.write(
-            'controlCommand("Soundboard v4", "Track_' + str(self.music_track) + '")')
+            b'controlCommand("Soundboard v4", "Track_' + str(self.music_track) + '")\r\n')
         self.music_track = (self.music_track + 1) % 10
 
     def stop_music(self):
-        self.tn.write('controlCommand("Soundboard v4", "Stop")')
+        self.tn.write(b'controlCommand("Soundboard v4", "Stop")\r\n')
 
     def wink(self):
         self.tn.write(
-            'controlCommand("RGB Animator", "AutoPositionAction", "Wink")')
+            b'controlCommand("RGB Animator", "AutoPositionAction", "Wink")\r\n')
 
     def disco_dance(self):
         self.tn.write(
-            'controlCommand("Auto Position", "AutoPositionAction", "Disco Dance")')
+            b'controlCommand("Auto Position", "AutoPositionAction", "Disco Dance")\r\n')
 
     def pre_dance(self):
         self.tn.write(
-            'controlCommand("Auto Position", "AutoPositionAction", "Predance")')
+            b'controlCommand("Auto Position", "AutoPositionAction", "Predance")\r\n')
 
     def happy_hands(self):
         self.tn.write(
-            'controlCommand("Auto Position", "AutoPositionAction", "Happy Hands")')
+            b'controlCommand("Auto Position", "AutoPositionAction", "Happy Hands")\r\n')
         
     def rock_n_roll(self):
         self.wink()
@@ -59,5 +59,5 @@ class JD_Robot:
         self.tn.close()
 
 if __name__ == '__main__':
-    JD = JD_Robot()
+    JD = Humanoid()
     JD.rock_n_roll()
