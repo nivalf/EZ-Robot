@@ -4,7 +4,7 @@
 import telnetlib
 import time
 
-host = "192.168.1.3"
+host = "192.168.1.2"
 port = 6666
 
 

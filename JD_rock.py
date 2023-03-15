@@ -4,8 +4,8 @@
 import telnetlib
 import time
 
-host = "192.168.1.1"
-port = 23
+host = "192.168.1.2"
+port = 6666
 
 class Humanoid:
     def __init__(self):
